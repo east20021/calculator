@@ -58,26 +58,36 @@ class ViewController: UIViewController {
             }
             
             operation = sender.tag
-        } else if sender.tag == 12 {
+        } else if sender.tag == 12 { // =(button)
             resetButtonImage()
+            var doubleValue: Double = 0
             
             if operation == 13 {
-                screenLabel.text = String(previousNumber + numberOnScreen)
+                doubleValue = previousNumber + numberOnScreen
             } else if operation == 14 {
-                 screenLabel.text = String(previousNumber - numberOnScreen)
+                 doubleValue = previousNumber - numberOnScreen
             } else if operation == 15 {
-                 screenLabel.text = String(previousNumber * numberOnScreen)
+                 doubleValue = previousNumber * numberOnScreen
             } else if operation == 16 {
-                 screenLabel.text = String(previousNumber / numberOnScreen)
+                 doubleValue = previousNumber / numberOnScreen
             } else {
-                
             }
-        } else if sender.tag == 11 {
+
+            
+            if floor(doubleValue) == doubleValue {
+                print(String(Int(doubleValue)))
+                screenLabel.text = String(Int(doubleValue))
+            } else {
+                screenLabel.text = String(doubleValue)
+            }
+            
+        } else if sender.tag == 11 { // C(button)
             resetButtonImage()
             screenLabel.text = ""
             previousNumber = 0
             
         }
+        
         
     }
     
