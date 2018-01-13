@@ -84,6 +84,7 @@
                         <viewLayoutGuide key="safeArea" id="J2u-hV-4BY"/>
                     </view>
                     <connections>
+                        <outlet property="popupCenterY" destination="8YQ-eh-G3Q" id="KSR-Ug-gHY"/>
                         <outlet property="popupHeight" destination="PdL-ic-uac" id="cJi-4A-ozv"/>
                         <outlet property="popupImageView" destination="yrX-Pd-Y0N" id="B2l-fO-CRP"/>
                     </connections>

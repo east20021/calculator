@@ -12,13 +12,22 @@ class PopUpViewController: UIViewController {
 
     @IBOutlet weak var popupHeight: NSLayoutConstraint!
     @IBOutlet weak var popupImageView: UIImageView!
+    @IBOutlet weak var popupCenterY: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       popupCenterY.constant = 1000
         
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        popupCenterY.constant = 0
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func viewDidLayoutSubviews() {
