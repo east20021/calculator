@@ -32,6 +32,16 @@ class ViewController: UIViewController {
         divisionButton.setImage(UIImage(named: "number(÷) "), for: .normal)
     }
     
+   
+    @IBAction func appleButton(_ sender: Any) {
+        let popupVC: PopUpViewController = UIStoryboard(name: "Popup", bundle: nil).instantiateViewController(withIdentifier: "popupVC") as! PopUpViewController
+        
+        popupVC.modalPresentationStyle = .overCurrentContext
+        
+        self.present(popupVC, animated: false) { }
+        
+        
+    }
     @IBAction func numberButton(_ sender: UIButton) {
         screenLabel.text = screenLabel.text! + String(sender.tag - 1)
         numberOnScreen = Double(screenLabel.text!)!

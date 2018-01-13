@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pop Up View Controller-->
+        <scene sceneID="pjM-aH-WJI">
+            <objects>
+                <viewController storyboardIdentifier="popupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Eo-sl-cA5" customClass="PopUpViewController" customModule="AutoLayout_calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1CU-cE-1Vl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cM6-ik-jvU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEI-YS-VOQ">
+                                <rect key="frame" x="40" y="99" width="295" height="469"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yrX-Pd-Y0N">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="399"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="399" id="PdL-ic-uac"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLw-GN-Xj4">
+                                        <rect key="frame" x="20" y="419" width="59" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="닫기"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="3Eo-sl-cA5" eventType="touchUpInside" id="ck0-B8-y2D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-w2-dRv">
+                                        <rect key="frame" x="99" y="419" width="176" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="자세히 보기"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFh-AN-b2m">
+                                        <rect key="frame" x="245" y="20" width="30" height="30"/>
+                                        <state key="normal" title="x"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="3Eo-sl-cA5" eventType="touchUpInside" id="kVZ-YZ-vLS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ni7-w2-dRv" firstAttribute="leading" secondItem="yLw-GN-Xj4" secondAttribute="trailing" constant="20" id="6Em-Je-RVa"/>
+                                    <constraint firstAttribute="trailing" secondItem="SFh-AN-b2m" secondAttribute="trailing" constant="20" id="GRK-ty-rck"/>
+                                    <constraint firstItem="yLw-GN-Xj4" firstAttribute="top" secondItem="yrX-Pd-Y0N" secondAttribute="bottom" constant="20" id="GWr-3u-brC"/>
+                                    <constraint firstItem="yLw-GN-Xj4" firstAttribute="width" secondItem="ni7-w2-dRv" secondAttribute="width" multiplier="1:3" id="MJt-A1-S1S"/>
+                                    <constraint firstAttribute="trailing" secondItem="ni7-w2-dRv" secondAttribute="trailing" constant="20" id="NjQ-aK-vKg"/>
+                                    <constraint firstAttribute="trailing" secondItem="yrX-Pd-Y0N" secondAttribute="trailing" id="StT-31-EeU"/>
+                                    <constraint firstAttribute="bottom" secondItem="yLw-GN-Xj4" secondAttribute="bottom" constant="20" id="Vh8-QV-BdC"/>
+                                    <constraint firstAttribute="bottom" secondItem="ni7-w2-dRv" secondAttribute="bottom" constant="20" id="ZZN-HQ-hs8"/>
+                                    <constraint firstItem="SFh-AN-b2m" firstAttribute="top" secondItem="NEI-YS-VOQ" secondAttribute="top" constant="20" id="cDb-jp-btt"/>
+                                    <constraint firstItem="yrX-Pd-Y0N" firstAttribute="top" secondItem="NEI-YS-VOQ" secondAttribute="top" id="h2E-vu-NEB"/>
+                                    <constraint firstItem="yLw-GN-Xj4" firstAttribute="leading" secondItem="NEI-YS-VOQ" secondAttribute="leading" constant="20" id="qMK-Xx-Mvz"/>
+                                    <constraint firstItem="yrX-Pd-Y0N" firstAttribute="leading" secondItem="NEI-YS-VOQ" secondAttribute="leading" id="yAD-F5-BVn"/>
+                                    <constraint firstItem="ni7-w2-dRv" firstAttribute="top" secondItem="yrX-Pd-Y0N" secondAttribute="bottom" constant="20" id="zKd-0K-mTh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="cM6-ik-jvU" firstAttribute="leading" secondItem="J2u-hV-4BY" secondAttribute="leading" id="7xH-P0-89h"/>
+                            <constraint firstItem="NEI-YS-VOQ" firstAttribute="centerY" secondItem="1CU-cE-1Vl" secondAttribute="centerY" id="8YQ-eh-G3Q"/>
+                            <constraint firstItem="J2u-hV-4BY" firstAttribute="trailing" secondItem="NEI-YS-VOQ" secondAttribute="trailing" constant="40" id="Aog-ke-Mfm"/>
+                            <constraint firstItem="cM6-ik-jvU" firstAttribute="top" secondItem="J2u-hV-4BY" secondAttribute="top" id="II8-bH-fnH"/>
+                            <constraint firstItem="J2u-hV-4BY" firstAttribute="trailing" secondItem="cM6-ik-jvU" secondAttribute="trailing" id="Iig-qy-eu8"/>
+                            <constraint firstItem="NEI-YS-VOQ" firstAttribute="centerX" secondItem="1CU-cE-1Vl" secondAttribute="centerX" id="L3q-3Y-YFO"/>
+                            <constraint firstItem="J2u-hV-4BY" firstAttribute="bottom" secondItem="cM6-ik-jvU" secondAttribute="bottom" id="jSI-ix-lKf"/>
+                            <constraint firstItem="NEI-YS-VOQ" firstAttribute="leading" secondItem="J2u-hV-4BY" secondAttribute="leading" constant="40" id="v5u-KJ-jkf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J2u-hV-4BY"/>
+                    </view>
+                    <connections>
+                        <outlet property="popupHeight" destination="PdL-ic-uac" id="cJi-4A-ozv"/>
+                        <outlet property="popupImageView" destination="yrX-Pd-Y0N" id="B2l-fO-CRP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0Y-0F-94c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426.39999999999998" y="-144.3778110944528"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="apple.jpg" width="398" height="399"/>
+    </resources>
+</document>

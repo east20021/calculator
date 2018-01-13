@@ -201,6 +201,9 @@
                                         <rect key="frame" x="94" y="0.0" width="93.5" height="93.5"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="-" image="number(apple)"/>
+                                        <connections>
+                                            <action selector="appleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwC-SP-sy6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKz-KX-nct">
                                         <rect key="frame" x="187.5" y="0.0" width="94" height="93.5"/>
@@ -323,6 +326,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="ykC-jg-dl8"/>
                     <connections>
                         <outlet property="divisionButton" destination="kYG-OC-N1f" id="843-Hu-1n5"/>
                         <outlet property="minusButton" destination="BBv-CP-YZ1" id="QZ9-kt-5C9"/>
@@ -333,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-145" y="146"/>
         </scene>
     </scenes>
     <resources>
