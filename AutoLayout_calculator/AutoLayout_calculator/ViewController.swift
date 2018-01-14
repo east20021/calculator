@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var numberOnScreen: Double = 0
     var previousNumber: Double = 0
     var performingMath: Bool = false
+    var CheckResultValue: Bool = false
     var operation = 0
 
 
@@ -32,6 +33,14 @@ class ViewController: UIViewController {
         divisionButton.setImage(UIImage(named: "number(÷) "), for: .normal)
     }
     
+    func clear() {
+        resetButtonImage()
+        screenLabel.text = ""
+        previousNumber = 0
+        CheckResultValue = false
+        performingMath = false
+    }
+    
    
     @IBAction func appleButton(_ sender: Any) {
         let popupVC: PopUpViewController = UIStoryboard(name: "Popup", bundle: nil).instantiateViewController(withIdentifier: "popupVC") as! PopUpViewController
@@ -43,6 +52,12 @@ class ViewController: UIViewController {
         
     }
     @IBAction func numberButton(_ sender: UIButton) {
+        
+        if performingMath == false && CheckResultValue == true {
+
+            clear()
+        }
+        
         screenLabel.text = screenLabel.text! + String(sender.tag - 1)
         numberOnScreen = Double(screenLabel.text!)!
     }
@@ -52,6 +67,7 @@ class ViewController: UIViewController {
         if screenLabel.text != "" && sender.tag != 11 && sender.tag != 12 {
             previousNumber = Double(screenLabel.text!)!
             screenLabel.text = ""
+            performingMath = true
             
             if sender.tag == 13 {//plus
                 resetButtonImage()
@@ -71,6 +87,8 @@ class ViewController: UIViewController {
         } else if sender.tag == 12 { // =(button)
             resetButtonImage()
             var doubleValue: Double = 0
+            performingMath = false
+            
             
             if operation == 13 {
                 doubleValue = previousNumber + numberOnScreen
@@ -81,20 +99,22 @@ class ViewController: UIViewController {
             } else if operation == 16 {
                  doubleValue = previousNumber / numberOnScreen
             } else {
+                print("error")
+            }
+            if doubleValue != 0 {
+                CheckResultValue = true
             }
 
             
             if floor(doubleValue) == doubleValue {
-                print(String(Int(doubleValue)))
                 screenLabel.text = String(Int(doubleValue))
             } else {
                 screenLabel.text = String(doubleValue)
             }
             
+            
         } else if sender.tag == 11 { // C(button)
-            resetButtonImage()
-            screenLabel.text = ""
-            previousNumber = 0
+            clear()
             
         }
         
