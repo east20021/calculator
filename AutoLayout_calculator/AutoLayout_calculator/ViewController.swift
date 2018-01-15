@@ -10,9 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    enum Math: Int {
+        case plus = 13
+        case minus = 14
+        case multiply = 15
+        case divide = 16
+    }
+    
     var numberOnScreen: Double = 0
     var previousNumber: Double = 0
-    var performingMath: Bool = false
+    var isPerformingMath: Bool = false
     var CheckResultValue: Bool = false
     var operation = 0
 
@@ -38,7 +45,7 @@ class ViewController: UIViewController {
         screenLabel.text = ""
         previousNumber = 0
         CheckResultValue = false
-        performingMath = false
+        isPerformingMath = false
     }
     
    
@@ -53,7 +60,7 @@ class ViewController: UIViewController {
     }
     @IBAction func numberButton(_ sender: UIButton) {
         
-        if performingMath == false && CheckResultValue == true {
+        if isPerformingMath == false && CheckResultValue == true {
 
             clear()
         }
@@ -67,40 +74,45 @@ class ViewController: UIViewController {
         if screenLabel.text != "" && sender.tag != 11 && sender.tag != 12 {
             previousNumber = Double(screenLabel.text!)!
             screenLabel.text = ""
-            performingMath = true
+            isPerformingMath = true
+            resetButtonImage()
+
             
-            if sender.tag == 13 {//plus
-                resetButtonImage()
+            switch sender.tag {
+            case Math.plus.rawValue:
                 plusButton.setImage(UIImage(named: "number(+)_on"), for: .normal)
-            } else if sender.tag == 14 {//minus
-                resetButtonImage()
-                minusButton.setImage(UIImage(named: "number(-)_on"), for: .normal)
-            } else if sender.tag == 15 {//multiply
-                resetButtonImage()
+            case Math.minus.rawValue:
+                 minusButton.setImage(UIImage(named: "number(-)_on"), for: .normal)
+            case Math.multiply.rawValue:
                 multiplyButton.setImage(UIImage(named: "number(×)_on"), for: .normal)
-            } else if sender.tag == 16 {//divide
-                resetButtonImage()
+            case Math.divide.rawValue:
                 divisionButton.setImage(UIImage(named: "number(÷)_on"), for: .normal)
+            default:
+                print("Math error")
             }
+            
+            
+            
             
             operation = sender.tag
         } else if sender.tag == 12 { // =(button)
             resetButtonImage()
             var doubleValue: Double = 0
-            performingMath = false
+            isPerformingMath = false
             
-            
-            if operation == 13 {
+            switch operation {
+            case Math.plus.rawValue:
                 doubleValue = previousNumber + numberOnScreen
-            } else if operation == 14 {
-                 doubleValue = previousNumber - numberOnScreen
-            } else if operation == 15 {
-                 doubleValue = previousNumber * numberOnScreen
-            } else if operation == 16 {
-                 doubleValue = previousNumber / numberOnScreen
-            } else {
-                print("error")
+            case Math.minus.rawValue:
+                doubleValue = previousNumber - numberOnScreen
+            case Math.multiply.rawValue:
+                doubleValue = previousNumber * numberOnScreen
+            case Math.divide.rawValue:
+                doubleValue = previousNumber / numberOnScreen
+            default:
+                print("Math error")
             }
+            
             if doubleValue != 0 {
                 CheckResultValue = true
             }
