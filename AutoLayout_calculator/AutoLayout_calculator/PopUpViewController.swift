@@ -40,6 +40,14 @@ class PopUpViewController: UIViewController {
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
+    @IBAction func detailButton(_ sender: Any) {
+        let detailVC: DetailViewController = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+        
+        detailVC.modalPresentationStyle = .overCurrentContext
+        
+        self.present(detailVC, animated: true) { }
+    }
+    
     
     /*
     // MARK: - Navigation

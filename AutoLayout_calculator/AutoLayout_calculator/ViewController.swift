@@ -90,10 +90,7 @@ class ViewController: UIViewController {
             default:
                 print("Math error")
             }
-            
-            
-            
-            
+
             operation = sender.tag
         } else if sender.tag == 12 { // =(button)
             resetButtonImage()
