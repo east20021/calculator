@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         case minus = 14
         case multiply = 15
         case divide = 16
+        case reminder = 17
     }
     
     var numberOnScreen: Double = 0
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var divisionButton: UIButton!
     @IBOutlet weak var multiplyButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var reminderButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
         minusButton.setImage(UIImage(named: "number(-)"), for: .normal)
         multiplyButton.setImage(UIImage(named: "number(×)"), for: .normal)
         divisionButton.setImage(UIImage(named: "number(÷) "), for: .normal)
+        reminderButton.setImage(UIImage(named: "number(%)"), for: .normal)
     }
     
     func clear() {
@@ -87,6 +90,8 @@ class ViewController: UIViewController {
                 multiplyButton.setImage(UIImage(named: "number(×)_on"), for: .normal)
             case Math.divide.rawValue:
                 divisionButton.setImage(UIImage(named: "number(÷)_on"), for: .normal)
+            case Math.reminder.rawValue:
+                reminderButton.setImage(UIImage(named: "number(%)_on"), for: .normal)
             default:
                 print("Math error")
             }
@@ -106,6 +111,8 @@ class ViewController: UIViewController {
                 doubleValue = previousNumber * numberOnScreen
             case Math.divide.rawValue:
                 doubleValue = previousNumber / numberOnScreen
+            case Math.reminder.rawValue:
+                doubleValue = previousNumber.truncatingRemainder(dividingBy: numberOnScreen)
             default:
                 print("Math error")
             }

@@ -205,10 +205,13 @@
                                             <action selector="appleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwC-SP-sy6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKz-KX-nct">
+                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKz-KX-nct">
                                         <rect key="frame" x="187.5" y="0.0" width="94" height="93.5"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="/" image="default"/>
+                                        <state key="normal" title="/" image="number(%)"/>
+                                        <connections>
+                                            <action selector="functionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2J-BG-QdA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYG-OC-N1f">
                                         <rect key="frame" x="281.5" y="0.0" width="93.5" height="93.5"/>
@@ -332,6 +335,7 @@
                         <outlet property="minusButton" destination="BBv-CP-YZ1" id="QZ9-kt-5C9"/>
                         <outlet property="multiplyButton" destination="e5S-ZM-7cN" id="cwL-e4-hjq"/>
                         <outlet property="plusButton" destination="gc7-zp-ciM" id="JUl-5w-7bY"/>
+                        <outlet property="reminderButton" destination="eKz-KX-nct" id="G3h-RQ-LGj"/>
                         <outlet property="screenLabel" destination="Yer-Qz-Q80" id="g2L-Oa-Wor"/>
                     </connections>
                 </viewController>
@@ -342,6 +346,7 @@
     </scenes>
     <resources>
         <image name="default" width="300" height="300"/>
+        <image name="number(%)" width="300" height="300"/>
         <image name="number(+)" width="300" height="300"/>
         <image name="number(-)" width="300" height="300"/>
         <image name="number(=)" width="300" height="300"/>
